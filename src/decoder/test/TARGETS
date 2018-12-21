@@ -1,0 +1,21 @@
+cpp_unittest(
+    name = "decoder_test",
+    srcs = [
+        "DecoderTest.cpp",
+    ],
+    compiler_flags = [
+        "-DDECODER_TEST_DATADIR=\"deeplearning/projects/wav2letter/src/decoder/test\"",
+    ],
+    deps = [
+        "//deeplearning/projects/wav2letter/src/common:common",
+        "//deeplearning/projects/wav2letter/src/criterion:criterion",
+        "//deeplearning/projects/wav2letter/src/data:data",
+        "//deeplearning/projects/wav2letter/src/decoder:beamer",
+        "//deeplearning/projects/wav2letter/src/module:module",
+        "//deeplearning/projects/wav2letter/src/runtime:runtime",
+    ],
+    external_deps = [
+        "glog",
+        ("googletest", None, "gtest"),
+    ],
+)

@@ -1,0 +1,39 @@
+cpp_library(
+    name = "libwarpctc_cpu",
+    srcs = [
+        "src/ctc_entrypoint.cpp",
+    ],
+    headers = glob(["include/**/*.h"]),
+    preprocessor_flags = [
+        "-Ideeplearning/projects/wav2letter/src/third_party/warpctc/include/detail",
+        "-Ideeplearning/projects/wav2letter/src/third_party/warpctc/include",
+    ],
+    external_deps = [
+        ("libgcc", None, "gomp"),
+    ],
+)
+
+cpp_library(
+    name = "libwarpctc",
+    srcs = [
+        "src/ctc_entrypoint.cu",
+        "src/reduce.cu",
+    ],
+    nvcc_flags = [
+        "-gencode=arch=compute_35,code=\"sm_35,compute_35\"",
+        "-gencode=arch=compute_52,code=\"sm_52,compute_52\"",
+        "-gencode=arch=compute_60,code=\"sm_60,compute_60\"",
+        "-gencode=arch=compute_70,code=\"sm_70,compute_70\"",
+        "--std=c++11",
+    ],
+    preprocessor_flags = [
+        "-Ideeplearning/projects/wav2letter/src/third_party/warpctc/include/detail",
+        "-Ideeplearning/projects/wav2letter/src/third_party/warpctc/include",
+    ],
+    deps = [
+        ":libwarpctc_cpu",
+    ],
+    external_deps = [
+        ("cuda", None, "cuda-lazy"),
+    ],
+)

@@ -1,0 +1,12 @@
+cpp_unittest(
+    name = "common_test",
+    srcs = [
+        "W2lCommonTest.cpp",
+    ],
+    deps = [
+        "//deeplearning/projects/wav2letter/src/common:common",
+    ],
+    external_deps = [
+        ("googletest", None, "gmock"),
+    ],
+)

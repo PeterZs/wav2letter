@@ -1,0 +1,26 @@
+cpp_library(
+    name = "data",
+    srcs = [
+        "Featurize.cpp",
+        "NumberedFilesLoader.cpp",
+        "Utils.cpp",
+        "W2lDataset.cpp",
+        "W2lNumberedFilesDataset.cpp",
+    ],
+    headers = [
+        "Featurize.h",
+        "NumberedFilesLoader.h",
+        "Utils.h",
+        "W2lDataset.h",
+        "W2lNumberedFilesDataset.h",
+    ],
+    deps = [
+        "//deeplearning/projects/wav2letter/src/common:common",
+        "//deeplearning/projects/wav2letter/src/feature:speech",
+    ],
+    external_deps = [
+        "gflags",
+        "glog",
+        ("libgcc", None, "gomp"),
+    ],
+)

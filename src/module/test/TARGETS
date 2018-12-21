@@ -1,0 +1,28 @@
+cpp_binary(
+    name = "benchmark",
+    srcs = [
+        "Benchmark.cpp",
+    ],
+    deps = [
+        "//deeplearning/projects/wav2letter/src/common:deps",
+    ],
+)
+
+cpp_unittest(
+    name = "w2lmodule_test",
+    srcs = [
+        "W2lModuleTest.cpp",
+    ],
+    compiler_flags = [
+        "-DMODULE_TEST_ARCHDIR=\"deeplearning/projects/wav2letter/src/module/test\"",
+    ],
+    deps = [
+        "//deeplearning/projects/wav2letter/src/common:common",
+        "//deeplearning/projects/wav2letter/src/module:module",
+    ],
+    external_deps = [
+        ("Cereal", None, "cereal"),
+        "glog",
+        ("googletest", None, "gtest"),
+    ],
+)

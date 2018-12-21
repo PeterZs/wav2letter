@@ -1,0 +1,131 @@
+cpp_unittest(
+    name = "test_windowing",
+    srcs = [
+        "WindowingTest.cpp",
+    ],
+    headers = ["TestUtils.h"],
+    deps = [
+        "//deeplearning/projects/wav2letter/src/feature:speech",
+    ],
+    external_deps = [("googletest", None, "gtest")],
+)
+
+cpp_unittest(
+    name = "test_preemphasis",
+    srcs = [
+        "PreEmphasisTest.cpp",
+    ],
+    headers = ["TestUtils.h"],
+    deps = [
+        "//deeplearning/projects/wav2letter/src/feature:speech",
+    ],
+    external_deps = [("googletest", None, "gtest")],
+)
+
+cpp_unittest(
+    name = "test_trifilterbank",
+    srcs = [
+        "TriFilterbankTest.cpp",
+    ],
+    headers = ["TestUtils.h"],
+    deps = [
+        "//deeplearning/projects/wav2letter/src/feature:speech",
+    ],
+    external_deps = [("googletest", None, "gtest")],
+)
+
+cpp_unittest(
+    name = "test_ceplifter",
+    srcs = [
+        "CeplifterTest.cpp",
+    ],
+    headers = ["TestUtils.h"],
+    deps = [
+        "//deeplearning/projects/wav2letter/src/feature:speech",
+    ],
+    external_deps = [("googletest", None, "gtest")],
+)
+
+cpp_unittest(
+    name = "test_dct",
+    srcs = [
+        "DctTest.cpp",
+    ],
+    headers = ["TestUtils.h"],
+    deps = [
+        "//deeplearning/projects/wav2letter/src/feature:speech",
+    ],
+    external_deps = [("googletest", None, "gtest")],
+)
+
+cpp_unittest(
+    name = "test_derivatives",
+    srcs = [
+        "DerivativesTest.cpp",
+    ],
+    headers = ["TestUtils.h"],
+    deps = [
+        "//deeplearning/projects/wav2letter/src/feature:speech",
+    ],
+    external_deps = [("googletest", None, "gtest")],
+)
+
+cpp_unittest(
+    name = "test_dither",
+    srcs = [
+        "DitherTest.cpp",
+    ],
+    headers = ["TestUtils.h"],
+    deps = [
+        "//deeplearning/projects/wav2letter/src/feature:speech",
+    ],
+    external_deps = [("googletest", None, "gtest")],
+)
+
+cpp_unittest(
+    name = "test_mfcc",
+    srcs = [
+        "MfccTest.cpp",
+    ],
+    headers = ["TestUtils.h"],
+    compiler_flags = [
+        "-DFEATURE_TEST_DATADIR=\"deeplearning/projects/wav2letter/src/feature/test/data\"",
+    ],
+    deps = [
+        "//deeplearning/projects/wav2letter/src/common:common",
+        "//deeplearning/projects/wav2letter/src/feature:speech",
+    ],
+    external_deps = [
+        ("googletest", None, "gtest"),
+    ],
+)
+
+cpp_unittest(
+    name = "test_sound",
+    srcs = [
+        "SoundTest.cpp",
+    ],
+    compiler_flags = [
+        "-DFEATURE_TEST_DATADIR=\"deeplearning/projects/wav2letter/src/feature/test/data\"",
+    ],
+    deps = [
+        "//deeplearning/projects/wav2letter/src/common:common",
+        "//deeplearning/projects/wav2letter/src/feature:speech",
+    ],
+    external_deps = [("googletest", None, "gtest")],
+)
+
+cpp_unittest(
+    name = "test_speechutils",
+    srcs = [
+        "SpeechUtilsTest.cpp",
+    ],
+    headers = ["TestUtils.h"],
+    deps = [
+        "//deeplearning/projects/wav2letter/src/common:deps",
+        "//deeplearning/projects/wav2letter/src/feature:speech",
+    ],
+    external_deps = [
+        ("googletest", None, "gtest"),
+    ],
+)

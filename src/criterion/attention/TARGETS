@@ -1,0 +1,34 @@
+cpp_library(
+    name = "attention",
+    srcs = [
+        "ContentAttention.cpp",
+    ],
+    headers = [
+        "AttentionBase.h",
+        "ContentAttention.h",
+        "Defines.h",
+        "attention.h",
+    ],
+    deps = [
+        "//deeplearning/projects/wav2letter/src/common:common",
+    ],
+)
+
+cpp_library(
+    name = "window",
+    srcs = [
+        "MedianWindow.cpp",
+        "SoftWindow.cpp",
+        "StepWindow.cpp",
+    ],
+    headers = [
+        "MedianWindow.h",
+        "SoftWindow.h",
+        "StepWindow.h",
+        "WindowBase.h",
+        "window.h",
+    ],
+    deps = [
+        "//deeplearning/projects/wav2letter/src/common:common",
+    ],
+)

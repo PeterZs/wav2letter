@@ -1,0 +1,33 @@
+cpp_binary(
+    name = "optimize_sort_params",
+    srcs = [
+        "OptimizeSortParams.cpp",
+    ],
+    deps = [
+        "//deeplearning/projects/wav2letter/src/common:common",
+        "//deeplearning/projects/wav2letter/src/data:data",
+        "//deeplearning/projects/wav2letter/src/fb:everstore_data",
+    ],
+    external_deps = [
+        "gflags",
+    ],
+)
+
+cpp_binary(
+    name = "seq2seq_analysis",
+    srcs = [
+        "Seq2SeqAnalysis.cpp",
+    ],
+    deps = [
+        "//deeplearning/projects/wav2letter/src/common:common",
+        "//deeplearning/projects/wav2letter/src/criterion:criterion",
+        "//deeplearning/projects/wav2letter/src/data:data",
+        "//deeplearning/projects/wav2letter/src/module:module",
+        "//deeplearning/projects/wav2letter/src/runtime:runtime",
+    ],
+    external_deps = [
+        "gflags",
+        "glog",
+        ("Cereal", None, "cereal"),
+    ],
+)
